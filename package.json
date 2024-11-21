@@ -10,6 +10,7 @@
     "deploy": "vercel --prod"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.2.4",
     "@react-three/drei": "^9.105.4",
     "@react-three/fiber": "^8.16.2",
     "@sentry/nextjs": "^7.105.0",
@@ -30,7 +31,7 @@
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.163.0",
     "three-globe": "^2.31.0",
-    "vercel": "^32.3.0"
+    "vercel": "^28.18.5"
   },
   "devDependencies": {
     "@types/node": "^20",

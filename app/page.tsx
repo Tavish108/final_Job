@@ -1,5 +1,6 @@
 "use client";
 
+import { Auth0Provider } from "@auth0/auth0-react";
 import { navItems } from "@/data";
 
 import Hero from "@/components/Hero";
@@ -28,4 +29,16 @@ const Home = () => {
   );
 };
 
-export default Home;
+const AppWrapper = () => (
+  <Auth0Provider
+    domain="dev-qum5nqab770ducws.us.auth0.com"
+    clientId="85VDks3C4mN4u5g5gPU7ot1SEqj27H9a"
+    authorizationParams={{
+      redirect_uri: typeof window !== "undefined" ? window.location.origin : "",
+    }}
+  >
+    <Home />
+  </Auth0Provider>
+);
+
+export default AppWrapper;

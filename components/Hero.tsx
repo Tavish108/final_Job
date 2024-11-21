@@ -1,10 +1,14 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import { FaLocationArrow } from "react-icons/fa6";
 
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+import { Button } from "./ui/MovingBorders";
 
 const Hero = () => {
+  const { user, loginWithRedirect, isAuthenticated,logout } = useAuth0();
+  console.log("Current User",user);
   return (
     <div className="pb-20 pt-36">
       {/**
@@ -14,11 +18,36 @@ const Hero = () => {
       {/* Logo placed outside the navbar */}
       <div className="absolute top-8 left-10 z-[6000]">
         <a href="/" aria-label="Go to home">
-          <img
-            src="/logo.svg" // Path to your logo file
-            alt="logo"
-            className="h-auto w-12" // Adjust height and width as needed
-          />
+        
+          {isAuthenticated ? (
+              <button onClick={(e)=>logout()}></button>
+            ):(<button onClick={(e) => loginWithRedirect}>Login</button>)}
+          <button
+            style={{
+              position: "absolute", // Make it positionable
+              top: "1px", // Move it from the top of the container (adjust value as needed)
+              left: "10px", // Move it from the left of the container (adjust value as needed)
+              border: "2px solid #4CAF50", // Green border
+              padding: "10px 20px",
+              // width:"2px,"
+              borderRadius: "8px", // Rounded corners
+              backgroundColor: "white",
+              color: "#4CAF50", // Text color matching the border
+              fontSize: "12px",
+              fontWeight: "bold",
+              cursor: "pointer",
+              transition: "background-color 0.3s ease",
+            }}
+            onClick={() => loginWithRedirect()}
+            onMouseOver={(e) =>
+              (e.currentTarget.style.backgroundColor = "#4CAF50")
+            }
+            onMouseOut={(e) =>
+              (e.currentTarget.style.backgroundColor = "white")
+            }
+          >
+            Log In
+          </button>
         </a>
       </div>
 
@@ -53,9 +82,7 @@ const Hero = () => {
 
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            
-          </p>
+          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80"></p>
 
           {/**
            *  Link: https://ui.aceternity.com/components/text-generate-effect
