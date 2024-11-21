@@ -7,47 +7,15 @@ import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import { Button } from "./ui/MovingBorders";
 
 const Hero = () => {
-  const { user, loginWithRedirect, isAuthenticated,logout } = useAuth0();
-  console.log("Current User",user);
   return (
     <div className="pb-20 pt-36">
       {/**
-       *  UI: Spotlights
-       *  Link: https://ui.aceternity.com/components/spotlight
-       */}
+
       {/* Logo placed outside the navbar */}
       <div className="absolute top-8 left-10 z-[6000]">
         <a href="/" aria-label="Go to home">
         
-          {isAuthenticated ? (
-              <button onClick={(e)=>logout()}></button>
-            ):(<button onClick={(e) => loginWithRedirect}>Login</button>)}
-          <button
-            style={{
-              position: "absolute", // Make it positionable
-              top: "1px", // Move it from the top of the container (adjust value as needed)
-              left: "10px", // Move it from the left of the container (adjust value as needed)
-              border: "2px solid #4CAF50", // Green border
-              padding: "10px 20px",
-              // width:"2px,"
-              borderRadius: "8px", // Rounded corners
-              backgroundColor: "white",
-              color: "#4CAF50", // Text color matching the border
-              fontSize: "12px",
-              fontWeight: "bold",
-              cursor: "pointer",
-              transition: "background-color 0.3s ease",
-            }}
-            onClick={() => loginWithRedirect()}
-            onMouseOver={(e) =>
-              (e.currentTarget.style.backgroundColor = "#4CAF50")
-            }
-            onMouseOut={(e) =>
-              (e.currentTarget.style.backgroundColor = "white")
-            }
-          >
-            Log In
-          </button>
+        
         </a>
       </div>
 
