@@ -14,8 +14,11 @@ const Hero = () => {
       {/* Logo placed outside the navbar */}
       <div className="absolute top-8 left-10 z-[6000]">
         <a href="/" aria-label="Go to home">
-        
-        
+          <img
+            src="/logo_job2.png" // Path to your logo file
+            alt="logo"
+            className="h-auto w-14" // Adjust height and width as needed
+          />
         </a>
       </div>
 
